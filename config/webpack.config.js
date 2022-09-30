@@ -310,15 +310,12 @@ module.exports = function (webpackEnv) {
         .map(ext => `.${ext}`)
         .filter(ext => useTypeScript || !ext.includes('ts')),
       alias: {
-        // Support React Native Web
-        // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
-        'react-native': 'react-native-web',
-        // Allows for better profiling with ReactDevTools
-        ...(isEnvProductionProfile && {
-          'react-dom$': 'react-dom/profiling',
-          'scheduler/tracing': 'scheduler/tracing-profiling',
-        }),
-        ...(modules.webpackAliases || {}),
+        react: path.resolve(__dirname, "../src/react/packages/react"),
+        "react-dom": path.resolve(__dirname, "../src/react/packages/react-dom"),
+        "react-reconciler": path.resolve(__dirname, "../src/react/packages/react-reconciler"),
+        "react-dom-bindings": path.resolve(__dirname, "../src/react/packages/react-dom-bindings"),
+        scheduler: path.resolve(__dirname, "../src/react/packages/scheduler"),
+        shared: path.resolve(__dirname, "../src/react/packages/shared"),
       },
       plugins: [
         // Prevents users from importing files from outside of src/ (or node_modules/).
