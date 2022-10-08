@@ -1,0 +1,26 @@
+{
+  "typescript.validate.enable": false,
+  "javascript.validate.enable": false,
+  "cSpell.words": [
+    "camelcase",
+    "codesandbox",
+    "compat",
+    "dont",
+    "fbjs",
+    "filesize",
+    "flexbugs",
+    "flowtype",
+    "lifecycles",
+    "linc",
+    "pacote",
+    "pmmmwh",
+    "precache",
+    "prereleases",
+    "prestart",
+    "svgr",
+    "tailwindcss",
+    "targz",
+    "testname",
+    "typeahead"
+  ]
+}
