@@ -24,6 +24,17 @@
   color: white;
 }
 
+button {
+  background-color: #61dafb;
+  width: 100px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 30px;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
 .App-link {
   color: #61dafb;
 }
