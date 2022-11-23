@@ -1,35 +1,38 @@
 import logo from './logo.svg';
 import './App.css';
-import { useState, useEffect } from 'react';
+import { useState, useReducer } from 'react';
+
+const reducer = (state, action) => {
+  switch (action) {
+    case 'increment':
+      return state + 1;
+    case 'decrement':
+      return state - 1;
+    case 'reset':
+      return 100;
+    default:
+      throw new Error('Unexpected action');
+  }
+};
 
 function App() {
-  const [counter, setCounter] = useState(0);
-  const [name, setName] = useState('John Doe');
-
-  useEffect(() => {
-    debugger;
-    console.log('useEffect called');
-  }, [counter]);
-
-  const handleAddClick = () => {
-    setCounter(counter + 1);
-  };
-
-  const handleMinClick = () => {
-    setCounter(counter - 1);
-  };
+  const [count1, setCounter] = useState(0);
+  const [count2, dispatch] = useReducer(reducer, 100);
 
   return (
     <div className="App">
       <header className="App-header">
-        <p>counter: {counter}</p>
+        <p>counter 1 = {count1}</p>
         <div>
-          <button onClick={handleAddClick}>+</button>
-          <button onClick={handleMinClick}>-</button>
+          <button onClick={() => setCounter((count) => count + 1)}>+1</button>
+          <button onClick={() => setCounter((count) => count - 1)}>-1</button>
         </div>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+        <p>counter 2 = {count2}</p>
+        <div>
+          <button onClick={() => dispatch('increment')}>+1</button>
+          <button onClick={() => dispatch('decrement')}>-1</button>
+          <button onClick={() => dispatch('reset')}>reset</button>
+        </div>
       </header>
     </div>
   );
